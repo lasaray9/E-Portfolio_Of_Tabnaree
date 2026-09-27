@@ -1,0 +1,9 @@
+import {getProfile} from '@/lib/queries'; import {thaiDate} from 
+'@/lib/format'
+export default async function About(){const p=await getProfile(); return 
+<main className="container section"><div className="surface" 
+style={{padding:28}}><div 
+style={{display:'grid',gridTemplateColumns:'260px 
+1fr',gap:30,alignItems:'start'}}><img className="hero-image" 
+style={{maxWidth:260,aspectRatio:'4/5'}} src={p?.profile_image_url||'/placeholder.svg'} alt={p?.full_name||'Profile'}/><div><span 
+className="tag">{p?.position||'นักวิชาการศึกษา'}</span><h1 style={{fontSize:42,margin:'10px 0'}}>{p?.full_name||'ชื่อของฉัน'}</h1><h2 style={{fontSize:20}}>{p?.organization}</h2><p style={{lineHeight:1.9,whiteSpace:'pre-wrap'}}>{p?.bio||p?.introduction}</p><h3>ประวัติการทำงาน</h3><p className="muted">เพิ่มข้อมูลประวัติการทำงานได้จากระบบหลังบ้าน</p><h3>ประวัติการศึกษา</h3><p className="muted">เพิ่มข้อมูลวุฒิการศึกษาได้จากระบบหลังบ้าน</p></div></div></div></main>}
